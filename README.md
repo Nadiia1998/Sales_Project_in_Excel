@@ -83,9 +83,9 @@ Customer-level RFM (Recency, Frequency, Monetary) segmentation table:
 - `Last Order in Days` → `MAXIFS` from `Order Date`
 - `Number of Orders` → `COUNTIFS` from `Order ID`
 - `Money Spent` → `SUMIFS` from `Sales`
-- `Recency Rate` → Percentile rank divided into 5 bins (lower value = 5, higher = 1)
-- `Frequency Rate` → Percentile rank divided into 5 bins (lower = 1, higher = 5)
-- `Monetary Rate` → Percentile rank divided into 5 bins (lower = 1, higher = 5)
+- `Recency Rate` → Percentile rank `Last Order in Days` column divided into 5 bins (lower value = 5, higher = 1)
+- `Frequency Rate` → Percentile rank `Number of Orders` column divided into 5 bins (lower = 1, higher = 5)
+- `Monetary Rate` → Percentile rank `Money Spent` column divided into 5 bins (lower = 1, higher = 5)
 - `RFM Score` → Concatenated value: `Recency + Frequency + Monetary`
 - `Customer Labels` → Labels assigned based on `RFM Score`
 
@@ -93,10 +93,10 @@ Customer-level RFM (Recency, Frequency, Monetary) segmentation table:
 
 ### 🔁 7. Returns
 
-Table indicating product returns, based on original sources:
+Table indicating product returns, based on original sources. Include only Order ID Returned items:
 
 - `Order ID`
-- `Returned` (TRUE/FALSE or Yes/No)
+- `Returned` 
 
 ---
 
